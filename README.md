@@ -5,6 +5,14 @@
 # Install microk8s
 sudo snap install microk8s --edge --classic
 
+# Add the default ubuntu user to microk8s group 
+sudo usermod -aG microk8s ubuntu
+
+# Logout and login again to apply the changes made to the user
+
+# Change the owner of kubernetes dir
+sudo chown -f -R ubuntu ~/.kube
+
 # Enable microk8s features
 microk8s.enable dns storage ingress
 
